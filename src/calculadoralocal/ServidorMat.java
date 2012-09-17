@@ -4,6 +4,9 @@
  */
 package calculadoralocal;
 
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+
 /**
  *
  * @author RafhaelRC

@@ -4,6 +4,8 @@
  */
 package calculadoralocal;
 
+import java.rmi.*;
+
 /**
  *
  * @author RafhaelRC
