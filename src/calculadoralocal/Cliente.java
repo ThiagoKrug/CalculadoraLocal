@@ -1,44 +1,38 @@
 package calculadoralocal;
 
+import java.net.MalformedURLException;
 import java.rmi.*;
+import org.apache.log4j.Logger;
+import rmi.IOperacoes;
 
 /**
  *
  * @author RafhaelRC
  */
 public class Cliente {
+    
+    public static Logger logger = Logger.getLogger(Cliente.class);
+
+    private IOperacoes operacoes;
+    public static String URL = "rmi://127.0.0.1/Operacoes";
 
     public Cliente() {
-
-        System.out.println("Arrancando o Cliente...");
-        // Vamos tentar ir aceder ao Servidor de Registos para recolher a interface
+        logger.info("Iniciando Cliente...");
         try {
-            msi = (InterfaceServidorMat) Naming.lookup("rmi://127.0.0.1/ServidorMat");
-        } catch (Exception e) {
-            System.out.println("Falhou o arranque do Cliente.\n" + e);
-            System.out.println("Certifique-se que tanto o Servidor de Registos como a Aplicação Servidora estão a correr correctamente.\n");
+            logger.info("Obtendo referência ao objeto remoto...");
+            operacoes = (IOperacoes) Naming.lookup(URL);
+        } catch (MalformedURLException | NotBoundException | RemoteException e) {
+            logger.fatal("Problema ao conectar no servidor!", e);
             System.exit(0);
         }
-
     }
 
     public double area(double a, double b) throws RemoteException {
-        return msi.multiplica(a, b);
+        return operacoes.multiplica(a, b);
     }
 
     public double perimetro(double a, double b) throws RemoteException {
-        double metade = msi.soma(a, b);
-        return msi.multiplica(2.0, metade);
+        double metade = operacoes.soma(a, b);
+        return operacoes.multiplica(2.0, metade);
     }
-
-    public static void main(String[] argv) {
-        Cliente c = new Cliente();
-        try {
-            System.out.println("Area: " + c.area(20.0, 40.0));
-            System.out.println("Perimetro: " + c.perimetro(20.0, 40.0));
-        } catch (Exception e) {
-            System.out.println("Excepção durante chamadas remotas:" + e);
-        }
-    }
-    private InterfaceServidorMat msi; // A interface para o objecto remoto
 }

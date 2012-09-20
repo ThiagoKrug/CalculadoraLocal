@@ -1,4 +1,4 @@
-package calculadoralocal;
+package rmi;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -7,7 +7,7 @@ import java.rmi.RemoteException;
  *
  * @author thiago
  */
-public interface InterfaceServidorMat extends Remote {
+public interface IOperacoes extends Remote {
 
     public double soma(double a, double b) throws RemoteException;
 
