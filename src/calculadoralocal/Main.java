@@ -16,7 +16,6 @@ public class Main {
     public static Logger logger = Logger.getLogger(Main.class);
 
     public static void main(String[] args) {
-        System.out.println(args);
         String url = "";
         if (args != null && args.length >= 1) {
             url = args[0];
