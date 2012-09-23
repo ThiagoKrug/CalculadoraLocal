@@ -8,8 +8,9 @@ import org.apache.log4j.Logger;
 import rmi.IOperacoes;
 
 /**
- *
- * @author RafhaelRC
+ * Classe Clientee
+ * @author Rafhael Cunha, Matheus Dal Forno, Thiago Krug, Bruno Vicelli
+ * 
  */
 public class Cliente {
     
@@ -18,6 +19,9 @@ public class Cliente {
     private IOperacoes operacoes;
     public static String URL = "rmi://127.0.0.1/Operacoes";
 
+    /**
+     * Método Construtor da classe Cliente
+     */
     public Cliente() {
         logger.info("Iniciando Cliente...");
         try {
@@ -28,11 +32,23 @@ public class Cliente {
             System.exit(0);
         }
     }
-
+    /**
+     * Método area
+     * @param a
+     * @param b
+     * @return multiplicação de a por b.
+     * @throws RemoteException 
+     */
     public double area(double a, double b) throws RemoteException {
         return operacoes.multiplica(a, b);
     }
-
+    /**
+     * Método perimetro
+     * @param a
+     * @param b
+     * @return  multiplicação de 2 x  metade(a + b);
+     * @throws RemoteException 
+     */
     public double perimetro(double a, double b) throws RemoteException {
         double metade = operacoes.soma(a, b);
         return operacoes.multiplica(2.0, metade);
