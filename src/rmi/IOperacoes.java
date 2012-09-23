@@ -4,7 +4,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 /**
- *  Interface que vai ser implementada pelo servidor
+ *  Interface que vai ser implementada pelo servidor da aplicação
  * @author Rafhael Cunha, Matheus Dal Forno, Thiago Krug, Bruno Vicelli
  */
 public interface IOperacoes extends Remote {

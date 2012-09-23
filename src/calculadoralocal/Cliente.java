@@ -6,7 +6,7 @@ import org.apache.log4j.Logger;
 import rmi.IOperacoes;
 
 /**
- * Classe Cliente
+ * Classe Clientee
  * @author Rafhael Cunha, Matheus Dal Forno, Thiago Krug, Bruno Vicelli
  * 
  */

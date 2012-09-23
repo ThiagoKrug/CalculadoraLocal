@@ -4,7 +4,7 @@ import java.rmi.RemoteException;
 import org.apache.log4j.Logger;
 
 /**
- *
+ *  Classe Main
  * @author Rafhael Cunha, Matheus Dal Forno, Thiago Krug, Bruno Vicelli
  */
 public class Main {
